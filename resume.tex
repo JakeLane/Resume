@@ -9,97 +9,111 @@
 \usepackage[svgnames]{xcolor}
 \usepackage{framed}
 \usepackage{tocloft}
+\usepackage{etoolbox}
 \usepackage{multicol}
+\robustify\cftdotfill
 
+%-----------------------------------------------------------
+%Edit these values as you see fit
 \setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
 \definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
 \definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
 
 %-----------------------------------------------------------
 %Margin setup
-
 \setlength{\evensidemargin}{-0.25in}
-\setlength{\headheight}{0in}
+\setlength{\headheight}{-0.25in}
 \setlength{\headsep}{0in}
 \setlength{\oddsidemargin}{-0.25in}
 \setlength{\paperheight}{11in}
 \setlength{\paperwidth}{8.5in}
 \setlength{\tabcolsep}{0in}
-\setlength{\textheight}{9.5in}
+\setlength{\textheight}{9.75in}
 \setlength{\textwidth}{7in}
 \setlength{\topmargin}{-0.3in}
 \setlength{\topskip}{0in}
 \setlength{\voffset}{0.1in}
-
 
 %-----------------------------------------------------------
 %Custom commands
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
 \newcommand{\resheading}[1]{\vspace{8pt}
   \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
-	\begin{shaded}
+    \begin{shaded}
+
 \setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
-	\end{shaded}
+    \end{shaded}
   }\vspace{-5pt}
 }
+
 \newcommand{\ressubheading}[4]{
 \begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
 		\textbf{#1} & #2 \\
 		\textit{#3} & \textit{#4} \\
 \end{tabular*}\vspace{-6pt}}
 
-\newcommand{\subheadingproject}[2]{
-\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
-		\textbf{#1} & #2 \\
-\end{tabular*}\vspace{-6pt}}
-
-\newcommand{\headerrow}[2]
-{\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
-  #1 & #2 \\
+\newcommand{\headerrow}[2]{
+    \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+    #1 & #2 \\
 \end{tabular*}}
 
 %-----------------------------------------------------------
-
 \begin{document}
 
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-\textbf{\Large Jake Lane} & me@jakelane.me \\
-Software Engineering Student & http://jakelane.me \\
-Lyndoch, South Australia & https://github.com/JakeLane \\
+
+\textbf{{\Large Jake Lane}} & \texttt{me@jakelane.me} \\
+Software Engineering Student & \texttt{http://jakelane.me} \\
+Lyndoch, South Australia & \texttt{https://github.com/JakeLane}
+
 \end{tabular*}
-\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \resheading{Education}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{itemize}
-	\item\ressubheading{University of Adelaide}{Adelaide, South Australia}{Bachelor of Engineering (Honours)(Software)}{2015 - Present}
+
+\item
+	\ressubheading{University of Adelaide}{Adelaide, South Australia}{Bachelor of Engineering (Honours)(Software)}{2015 - Present}
 	\begin{itemize}
 		\resitem{Expected Completion: November 2018}
 		\resitem{GPA: 5.875 / 7}
 	\end{itemize}
+
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \resheading{Experience}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{itemize}
-	\item\ressubheading{University of Adelaide}{Adelaide, South Australia}{Computer Science Learning Centre Tutor}{2016 - Present}
+
+\item
+	\ressubheading{University of Adelaide}{Adelaide, South Australia}{Computer Science Learning Centre Tutor}{2016 - Present}
 	\begin{itemize}
-		\resitem{Casual one-on-one tutoring targeted at first-year students}
+      \resitem{Casual one-on-one tutoring targeted at first-year students}
 	\end{itemize}
+
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \resheading{Skills}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \vspace{-0.25in}
+
 \begin{multicols}{2}
 	\headerrow{\textbf{Language}}{\textbf{Years}}\\
 	\headerrow{Java}{2}\\
 	\headerrow{Python}{2}\\
-	\headerrow{C++}{1}\\
-	\headerrow{C\#}{0.5}\\
+	\headerrow{C++}{1.5}\\
 	\headerrow{HTML/CSS/JS}{4}
 
 	% Break into next column
@@ -114,39 +128,52 @@ Lyndoch, South Australia & https://github.com/JakeLane \\
 \end{multicols}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \resheading{Personal Projects}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{itemize}
-	\item\subheadingproject{Toffeed}{Android (Java)}
-	\begin{itemize}
-		\resitem{Wrapper app for Facebook's mobile site that provides enhancements and a (somewhat) native app feel}
-		\resitem{Utilises injected JavaScript to manipulate the DOM and JavaScript Interfaces to obtain data directly from the site}
-		\resitem{Source available at https://github.com/JakeLane/Toffeed}
+
+\item
+    \ressubheading{Toffeed (https://github.com/JakeLane/Toffeed)}{Android (Java)}{Wrapper app for Facebook's mobile site}{}
+    \begin{itemize}
+        \resitem{Provides enhancements and a (somewhat) native app feel}
+        \resitem{Utilises injected JavaScript to manipulate the DOM and JavaScript Interfaces to obtain data directly from the site}
+        \resitem{Over 25000 downloads on Google Play}
 	\end{itemize}
-	\item\subheadingproject{WolframAlpha Reddit Bot}{Python}
-	\begin{itemize}
-		\resitem{Reddit bot written in Python using PRAW that replies with data from the WolframAlpha API when summoned or a direct link is posted}
-		\resitem{Source available at https://github.com/JakeLane/WolframAlpha-Reddit-Bot}
+
+\item
+    \ressubheading{WolframAlpha Reddit Bot (https://github.com/JakeLane/WolframAlpha-Reddit-Bot)}{Python}{Reddit Bot using Wolfram|Alpha API}{}
+    \begin{itemize}
+        \resitem{Reddit bot written in Python using PRAW that replies with data from the WolframAlpha API when summoned or a direct link is posted}
 	\end{itemize}
-	\item\subheadingproject{RapidTools}{Java}
-	\begin{itemize}
-		\resitem{A server plugin that I developed for use on the Rapid Minecraft server}
-		\resitem{Served many functions, which reduced the amount of plugins required (thus improving server peformance)}
-		\resitem{Interfaced with a website that I also built for the server}
-		\resitem{Source available at https://github.com/JakeLane/RapidTools}
+
+\item
+    \ressubheading{RapidTools (https://github.com/JakeLane/RapidTools)}{Java}{Bukkit server plugin}{}
+    \begin{itemize}
+        \resitem{A server plugin that I developed for use on the Rapid Minecraft server}
+        \resitem{Served many functions, which reduced the amount of plugins required (thus improving server peformance)}
+        \resitem{Interfaced with a website that I also built for the server}
 	\end{itemize}
-	\item\subheadingproject{Bell Warning System}{PHP and Python}
-	\begin{itemize}
-		\resitem{Major project for Year 12 Electronics}
-		\resitem{A (school) bell system that rings based on a timetable}
-		\resitem{Utilised a Raspberry Pi and three motorbike horns}
-		\resitem{User interface was programmed in PHP and a Python service handled the relay signals}
+
+\item
+    \ressubheading{Bell Warning System}{PHP and Python}{Automatic Bell system}{}
+    \begin{itemize}
+        \resitem{Major project for Year 12 Electronics}
+        \resitem{A (school) bell system that rings based on a timetable}
+        \resitem{Utilised a Raspberry Pi and three motorbike horns}
+        \resitem{User interface was programmed in PHP and a Python service handled the relay signals}
 	\end{itemize}
+
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \resheading{Miscellaneous}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{itemize}
 	\resitem{\textbf{Volunteering}}
 	\begin{itemize}
@@ -163,6 +190,7 @@ Lyndoch, South Australia & https://github.com/JakeLane \\
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
+
 \begin{itemize}
 	\resitem{\textbf{Hobbies}}
 	\begin{itemize}
@@ -176,8 +204,11 @@ Lyndoch, South Australia & https://github.com/JakeLane \\
 \end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \resheading{Relevant Courses}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \begin{itemize}
 	\item \headerrow{Algorithm Design \& Data Structures}{Distinction}
 	\item \headerrow{Object Oriented Programming}{Distinction}
@@ -187,4 +218,5 @@ Lyndoch, South Australia & https://github.com/JakeLane \\
 	\item \headerrow{Artificial Intelligence}{Pending}
 	\item \headerrow{Computer Networks \& Applications}{Pending}
 \end{itemize}
+
 \end{document}
