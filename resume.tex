@@ -1,197 +1,181 @@
-% (c) 2002 Matthew Boedicker <mboedick@mboedick.org> (original author) http://mboedick.org
-% This work is licensed under the Creative Commons Attribution-Noncommercial-Share Alike 2.5 License. To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/2.5/ or send a letter to Creative Commons, 543 Howard Street, 5th Floor, San Francisco, California, 94105, USA.
-
 \documentclass[letterpaper,11pt]{article}
-\newlength{\outerbordwidth}
-\pagestyle{empty}
-\raggedbottom
-\raggedright
-\usepackage[svgnames]{xcolor}
-\usepackage{framed}
-\usepackage{tocloft}
-\usepackage{etoolbox}
-\usepackage{multicol}
-\robustify\cftdotfill
 
-%-----------------------------------------------------------
-%Edit these values as you see fit
-\setlength{\outerbordwidth}{3pt}  % Width of border outside of title bars
-\definecolor{shadecolor}{gray}{0.75}  % Outer background color of title bars (0 = black, 1 = white)
-\definecolor{shadecolorB}{gray}{0.93}  % Inner background color of title bars
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[pdftex]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{vwcol}
 
-%-----------------------------------------------------------
-%Margin setup
-\setlength{\evensidemargin}{-0.25in}
-\setlength{\headheight}{-0.25in}
-\setlength{\headsep}{0in}
-\setlength{\oddsidemargin}{-0.25in}
-\setlength{\paperheight}{11in}
-\setlength{\paperwidth}{8.5in}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\addtolength{\oddsidemargin}{-0.375in}
+\addtolength{\evensidemargin}{-0.375in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\raggedbottom{}
+\raggedright{}
 \setlength{\tabcolsep}{0in}
-\setlength{\textheight}{9.75in}
-\setlength{\textwidth}{7in}
-\setlength{\topmargin}{-0.3in}
-\setlength{\topskip}{0in}
-\setlength{\voffset}{0.1in}
 
-%-----------------------------------------------------------
-%Custom commands
-\newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
-\newcommand{\resheading}[1]{\vspace{8pt}
-  \parbox{\textwidth}{\setlength{\FrameSep}{\outerbordwidth}
-    \begin{shaded}
+\titleformat{\section}{
+	\vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule{} \vspace{-5pt}]
 
-\setlength{\fboxsep}{0pt}\framebox[\textwidth][l]{\setlength{\fboxsep}{4pt}\fcolorbox{shadecolorB}{shadecolorB}{\textbf{\sffamily{\mbox{~}\makebox[6.762in][l]{\large #1} \vphantom{p\^{E}}}}}}
-    \end{shaded}
-  }\vspace{-5pt}
+\newcommand{\resumeItem}[1]{
+	\item\small{
+		#1 \vspace{-2pt}
+	}
 }
 
-\newcommand{\ressubheading}[4]{
-\begin{tabular*}{6.5in}{l@{\cftdotfill{\cftsecdotsep}\extracolsep{\fill}}r}
+\newcommand{\resumeSmallItem}[1]{
+	\item\footnotesize{
+		#1 \vspace{-8pt}
+	}
+}
+
+\newcommand{\resumeSubheading}[4]{
+	\vspace{-1pt}\item
+	\begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
 		\textbf{#1} & #2 \\
-		\textit{#3} & \textit{#4} \\
-\end{tabular*}\vspace{-6pt}}
+		\textit{\small#3} & \textit{\small #4} \\
+	\end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+	\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+	\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \newcommand{\headerrow}[2]{
-    \begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
-    #1 & #2 \\
+	\begin{tabular*}{\linewidth}{l@{\extracolsep{\fill}}r}
+		#1 & #2 \\
 \end{tabular*}}
 
-%-----------------------------------------------------------
 \begin{document}
 
-\begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-
-\textbf{{\Large Jake Lane}} & \texttt{me@jakelane.me} \\
-Software Engineering Student & +61488145475 \\
-Barossa, South Australia & \texttt{http://jakelane.me}
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+	\textbf{\href{http://jakelane.me/}{\Large Jake Lane}} & Email: \href{mailto:me@jakelane.me}{me@jakelane.me} \\
+	Software Engineering Student & Website: \href{http://jakelane.me/}{http://jakelane.me} \\
+	Lyndoch, South Australia & Mobile: +61 488 145 475
 \end{tabular*}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Experience}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}
-    \item
-    \ressubheading{Dolby Australia}{Sydney, New South Wales}{Intern Engineer}{Nov 2017 - Feb 2018}
+\vspace{-7pt}
+\section{Experience}
+\resumeSubHeadingListStart{}
 
-    \item
-    \ressubheading{Alcidion Corp.}{Wayville, South Australia}{Software Engineering Intern}{Nov 2016 - Feb 2017, Jul 2017 - Jul 2017}
-    \begin{itemize}
-        \resitem{Worked on a Miya product in the product development team}
-        \resitem{Developed an interactive editor webapp with Typescript, React, Redux, React DnD}
-        \begin{itemize}
-            \resitem{Implemented compiling to and from Smartdown (a markup language) with ASTs, static analysis, and recursive descent parsing}
-        \end{itemize}
-        \resitem{Developed a React Redux webapp to display data from Team Foundation Server in an interactive format}
-    \end{itemize}
+\resumeSubheading{Dolby Australia}{Sydney, New South Wales}{Intern Engineer}{Nov 2017 --- Feb 2018}
+\resumeItemListStart{}
 
-    \item
-    \ressubheading{School of Computer Science, University of Adelaide}{Adelaide, South Australia}{Teacher's Assistant}{March 2017 - Present}
-    \begin{itemize}
-        \resitem{Taught first and second year students in practicals}
-        \resitem{Courses: Algorithm Design \& Data Structures, Object Oriented Programming, and Web \& Database}
-        \resitem{Previously tutored one-on-one for the Computer Science Learning Centre in 2016}
-    \end{itemize}
-\end{itemize}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Education}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}
-\item
-	\ressubheading{University of Adelaide}{Adelaide, South Australia}{Bachelor of Engineering (Honours)(Software)}{2015 - Present}
+\resumeItem{Developed Android application in Kotlin utilising reactive and MVVM patterns.}
+\resumeItem{Set-up Continuous Integration and Continuous Deployment for Android application development.}
+
+\resumeItemListEnd{}
+
+\resumeSubheading{Alcidion Corp.}{Wayville, South Australia}{Software Engineering Intern}{Nov 2016 --- Feb 2017, Jul 2017 --- Jul 2017}
+
+\resumeItemListStart{}
+
+\resumeItem{Worked on a Miya product in the product development team}
+\resumeItem{Developed an interactive editor webapp with Typescript, React, Redux, React DnD}
+
+\resumeItemListStart{}
+
+\resumeItem{Implemented compiling to and from Smartdown (a markup language) with ASTs, static analysis, and recursive descent parsing}
+
+\resumeItemListEnd{}
+
+\resumeItem{Developed a React Redux webapp to display data from Team Foundation Server in an interactive format}
+
+\resumeItemListEnd{}
+
+\resumeSubheading{School of Computer Science, University of Adelaide}{Adelaide, South Australia}{Teacher's Assistant}{March 2017 --- Present}
+\resumeItemListStart{}
+
+\resumeItem{Taught first and second year students in practicals}
+\resumeItem{Courses: Algorithm Design \& Data Structures, Object Oriented Programming, and Web \& Database}
+\resumeItem{Previously tutored one-on-one for the Computer Science Learning Centre in 2016}
+
+\resumeItemListEnd{}
+
+\resumeSubHeadingListEnd{}
+
+\section{Education}
+\resumeSubHeadingListStart{}
+
+\resumeSubheading{University of Adelaide}{Adelaide, South Australia}{Bachelor of Engineering (Honours) (Software)}{2015 --- Present}
+\resumeItemListStart{}
+
+\resumeItem{Expected Completion: Nov 2018}
+\resumeItem{GPA:\@ 6 / 7}
+
+\resumeItemListEnd{}
+
+\resumeSubHeadingListEnd{}
+
+\section{Projects}
+\resumeSubHeadingListStart{}
+
+\resumeItem{\textbf{Toffeed}{: A wrapper app for Facebook's mobile site that provides enhancements and a (somewhat) native app feel. Utilises injected JavaScript to manipulate the DOM and JavaScript Interfaces to obtain data directly from the site. Over 50,000 downloads on Google Play.}}
+\resumeItem{\textbf{Wolfram$|$Alpha Reddit Bot}{: A Reddit bot written in Python using PRAW that replies with data from the Wolfram$|$Alpha API when summoned or a direct link is posted.}}
+\resumeItem{\textbf{RapidTools}{: A custom Minecraft server plugin written in Java. It served many functions, which reduced the amount of plugins required (thus improving server performance). Interacted with an API to display output on the website.}}
+
+\resumeSubHeadingListEnd{}
+
+\section{Skills}
+\resumeSubHeadingListStart{}
+
+\resumeItem{\textbf{Languages}{: C++, Java, Kotlin, HTML/CSS/JS, TypeScript, Python, C, Ruby}}
+\resumeItem{\textbf{Technologies}{: Android, Git, ReactJS, NodeJS, Rails, Linux, SQL, Raspberry Pi}}
+
+\resumeSubHeadingListEnd{}
+
+\begin{minipage}[t]{0.50\columnwidth}
+	\section{Relevant Courses}
+
+	\headerrow{Engineering Software as Services I}{HD}
+	\headerrow{Engineering Software as Services II}{D}
+	\headerrow{Computer Graphics}{D}
+	\headerrow{Event Driven Computing}{HD}
+	\headerrow{Mining Big Data}{HD}
+	\headerrow{Algorithm \& Data Structure Analysis}{D}
+	\headerrow{Problem Solving \& Software Development}{HD}
+	\headerrow{Artificial Intelligence}{D}
+	\headerrow{Advanced Programming Paradigms}{D}
+	\headerrow{Project Management II}{HD}
+
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.47\columnwidth}
+	\section{Miscellaneous}
+
 	\begin{itemize}
-		\resitem{Expected Completion: Nov 2018}
-		\resitem{GPA: 5.9 / 7}
-	\end{itemize}
-\end{itemize}
+		\item \headerrow{Computer Science Club Committee (2017)}{}
+		\item Sports
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Skills}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{-0.25in}
-\begin{multicols}{2}
-	\headerrow{\textbf{Language}}{\textbf{Years}}\\
-    \headerrow{C++}{3}\\
-    \headerrow{Java}{4}\\
-    \headerrow{HTML/CSS/JS}{6}
-	\headerrow{Python}{1}
-
-	% Break into next column
-	\vfill
-	\columnbreak
-
-	\headerrow {\textbf{Technology}} {\textbf{Years}}\\
-	\headerrow{Android}{2}\\
-	\headerrow{Git}{4}\\
-	\headerrow{ReactJS}{0.5}\\
-	\headerrow{Typescript}{0.5}\\
-    \headerrow{NodeJS}{0.5}
-\end{multicols}
-\vspace{-0.25in}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Personal Projects}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}
-\item
-    \ressubheading{Toffeed}{Android (Java)}{https://github.com/JakeLane/Toffeed}{}
-    \begin{itemize}
-        \resitem{Wrapper app for Facebook's mobile site that provides enhancements and a (somewhat) native app feel}
-        \resitem{Utilises injected JavaScript to manipulate the DOM and JavaScript Interfaces to obtain data directly from the site}
-        \resitem{Over 50,000 downloads on Google Play}
-	\end{itemize}
-
-\item
-    \ressubheading{Wolfram$|$Alpha Reddit Bot}{Python}{https://github.com/JakeLane/WolframAlpha-Reddit-Bot}{}
-    \begin{itemize}
-        \resitem{A Reddit bot written in Python using PRAW that replies with data from the Wolfram$|$Alpha API when summoned or a direct link is posted}
-	\end{itemize}
-
-\item
-    \ressubheading{RapidTools}{Java}{https://github.com/JakeLane/RapidTools}{}
-    \begin{itemize}
-        \resitem{Custom Minecraft server plugin}
-        \resitem{Served many functions, which reduced the amount of plugins required (thus improving server performance)}
-        \resitem{Interacted with an API to display output on the website}
-	\end{itemize}
-\end{itemize}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Miscellaneous}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}
-	\resitem{\textbf{Volunteering}}
-	\begin{itemize}
-		\resitem{University of Adelaide}
 		\begin{itemize}
-            \resitem{2017 Committee member for Computer Science Club of Adelaide University}
+
+			\item \headerrow{Former State Level Competitive Swimmer}{}
+			\item \headerrow{Tennis}{}
+
 		\end{itemize}
-	\end{itemize}
-\end{itemize}
 
-\begin{itemize}
-	\resitem{\textbf{Hobbies}}
-	\begin{itemize}
-		\resitem{Hobby electronics (i.e. Raspberry Pi)}
-		\resitem{Swimming}
-			\begin{itemize}
-				\resitem{Former State Level Competitive Swimmer}
-			\end{itemize}
-		\resitem{Tennis}
 	\end{itemize}
-\end{itemize}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\resheading{Relevant Courses}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{itemize}
-    \item \headerrow{Algorithm and Data Structure Analysis}{Distinction}
-	\item \headerrow{Problem Solving \& Software Development}{High Distinction}
-    \item \headerrow{Artificial Intelligence}{Distinction}
-    \item \headerrow{Advanced Programming Paradigms}{Distinction}
-	\item \headerrow{Web \& Database Computing}{Distinction}
-    \item \headerrow{Electrical \& Electronic Engineering IB}{High Distinction}
-    \item \headerrow{Statistical Practice I}{High Distinction}
-\end{itemize}
+\end{minipage}
 
 \end{document}
